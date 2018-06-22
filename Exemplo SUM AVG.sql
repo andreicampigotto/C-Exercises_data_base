@@ -28,3 +28,19 @@
 
 
 	SELECT AVG (precos) 'Somátorio dos preços' FROM vendas; --Tira média da coluna;
+
+	SELECT MIN (preco) FROM vendas; -- Retorna o menor preço;
+
+	SELECT Max(preco) FROM vendas; -- Retorna o maior  preço;
+
+	SELECT 
+	nome , LEN (nome)
+	FROM vendas
+	WHERE LEN (nome) > 5
+	ORDER BY LEN (nome) DESC; -- LEN Retorna quantidade de caracteres;
+
+	SELECT 
+	nome , LEN (nome)
+	FROM vendas
+	WHERE LEN (nome) = (SELECT MAX (LEN(nome)) FROM vendas)
+	ORDER BY LEN (nome) DESC; -- Retorna maior nome;
