@@ -26,4 +26,3 @@ SELECT * FROM outfit
 --UPDATE outfit SET cor = 'Azul Spacial' WHERE tecido LIKE '%Malha%'
 
 --DELETE FROM outfit WHERE cor = 'Azul Spacial' OR cor = 'Verde'
-
