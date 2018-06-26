@@ -2756,4 +2756,12 @@ SELECT
 	--WHERE (nota_1 + nota_2 + nota_3 + nota_4) / 4  = 'MÉDIA'
 	ORDER BY nota_1 DESC
 
--- 
+--ALUNOS DE PEIXES
+SELECT 
+	nome		'NOME',
+	signo		'SIGNO'
+	FROM alunos
+	WHERE signo = 'peixes'
+
+--SOMA DAS NOTAS 1
+
