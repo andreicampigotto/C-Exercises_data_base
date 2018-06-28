@@ -761,6 +761,22 @@ UPDATE pokemons_update SET altura  = 0.51, peso = 0.7 WHERE altura = 0.5
 --Códico = 1, Defesa = 1, Ataque = 1, Ataque Especial = 3, Defesa Especial = 4 onde def especial  = 3 e atk especial = 4;
 UPDATE pokemons_update SET codigo  =  1 , defesa = 1, ataque = 1, especial_ataque = 3, especial_defesa = 4 WHERE especial_defesa = 3 AND especial_ataque = 4
 
- -- obter somente os dez caracteres do nome ;
+ --Obter somente os dez caracteres do nome;
+ UPDATE pokemons_update SET nome = 'obter somente os dez caracteresdo nome' WHERE LEN (nome) >10
+
+ --Mudar categoria onde for flames;
+ UPDATE pokemons_update SET categoria = 'Water' WHERE categoria = 'Flames'
+
+ --Mudar códico de 155 para 151;
+UPDATE pokemons_update SET codigo = 151 WHERE codigo = 155
+
+--Mudar nome e ataque onde for kabuto;
+UPDATE pokemons_update SET nome = 'Naruto', ataque = 1  WHERE nome = 'Kabuto'
+
+--Mudar nome, ataque e ataque especial, onde nome for Mew ou nome for Mewtwo;
+UPDATE pokemons_update SET nome = 'Sasuke', ataque = 8001, especial_ataque = 8002  WHERE nome = 'Mew' OR nome = 'Mewtwo'
+
+--Mudar descrição, nome e categoria onde códico par;
+UPDATE pokemons_update SET descricao = 'Lorem ipsum.', nome = 'Tyranitar', categoria = 'Wood Gecko'  WHERE codigo %2 = 0
 
  

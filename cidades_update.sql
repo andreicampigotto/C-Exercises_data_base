@@ -1,11 +1,10 @@
-
-DROP TABLE cidades;
-CREATE TABLE cidades (
+DROP TABLE cidades_update;
+CREATE TABLE cidades_update (
 	estado CHAR(2),
 	cidade VARCHAR(100)
 );
 
-INSERT INTO cidades VALUES 
+INSERT INTO cidades_update VALUES 
 ('AC', 'Acrelândia'),
 ('AC', 'Assis Brasil'),
 ('AC', 'Brasiléia'),
@@ -999,7 +998,7 @@ INSERT INTO cidades VALUES
 ('GO', 'Indiara'),
 ('GO', 'Inhumas'),
 ('GO', 'Ipameri');
-INSERT INTO cidades VALUES 
+INSERT INTO cidades_update VALUES 
 ('GO', 'Ipiranga de Goiás'),
 ('GO', 'Iporá'),
 ('GO', 'Israelândia'),
@@ -1998,7 +1997,7 @@ INSERT INTO cidades VALUES
 ('MG', 'Rio Manso'),
 ('MG', 'Rio Novo'),
 ('MG', 'Rio Paranaíba');
-INSERT INTO cidades VALUES 
+INSERT INTO cidades_update VALUES 
 ('MG', 'Rio Pardo de Minas'),
 ('MG', 'Rio Piracicaba'),
 ('MG', 'Rio Pomba'),
@@ -2998,7 +2997,7 @@ INSERT INTO cidades VALUES
 ('PI', 'Baixa Grande do Ribeiro'),
 ('PI', 'Barra d`Alcântara'),
 ('PI', 'Barras');
-INSERT INTO cidades VALUES 
+INSERT INTO cidades_update VALUES 
 ('PI', 'Barreiras do Piauí'),
 ('PI', 'Barro Duro'),
 ('PI', 'Batalha'),
@@ -3998,7 +3997,7 @@ INSERT INTO cidades VALUES
 ('RS', 'Camargo'),
 ('RS', 'Cambará do Sul'),
 ('RS', 'Campestre da Serra');
-INSERT INTO cidades VALUES 
+INSERT INTO cidades_update VALUES 
 ('RS', 'Campina das Missões'),
 ('RS', 'Campinas do Sul'),
 ('RS', 'Campo Bom'),
@@ -4998,7 +4997,7 @@ INSERT INTO cidades VALUES
 ('SP', 'João Ramalho'),
 ('SP', 'José Bonifácio'),
 ('SP', 'Júlio Mesquita');
-INSERT INTO cidades VALUES 
+INSERT INTO cidades_update VALUES 
 ('SP', 'Jumirim'),
 ('SP', 'Jundiaí'),
 ('SP', 'Junqueirópolis'),
@@ -5490,61 +5489,34 @@ INSERT INTO cidades VALUES
 ('TO', 'Wanderlândia'),
 ('TO', 'Xambioá');
 
-/*--TODAS AS COLUNAS SELECIONADAS;
-SELECT 
-	cidade		'CIDADE',
-	estado		'ESTADO'
- FROM cidades
+SELECT * FROM cidades_update;
 
- --CIDADES QUE COMEÇAM COM A;
- SELECT 
-	cidade 
-	FROM cidades
-WHERE cidade LIKE 'A%'
+--Trocar estado de SC para SS;
+UPDATE cidades_update SET estado = 'SS'  WHERE  estado = 'SC'
 
---CIDADES QUE COMTÉM APAR NO NOME;
-SELECT 
-	cidade 
-	FROM cidades
-WHERE cidade LIKE '%APAR%'
+--Trocar cidade de Blumenau para Brumenau e estado para SC;
+UPDATE cidades_update SET cidade = 'Brumenau', estado = 'SC'  WHERE cidade = 'Blumenau'
 
---CIDADES QUE COMEÇAM COM W;
-SELECT 
-	cidade 
-	FROM cidades
-WHERE cidade LIKE 'W%'
+--Trocar cidade para batata que começe com bata%;
+UPDATE cidades_update SET cidade = 'Batata'  WHERE cidade LIKE 'Bata%'
 
---CIDADES QUE TERMINAM COM TUBA;
-SELECT 
-	cidade		'CIDADE',
-	estado		'ESTADO'
-	FROM cidades
-WHERE cidade LIKE '%TUBA'
-ORDER BY estado DESC
+--Trocar Belo por lindo onde cidade conter belo;
+UPDATE cidades_update SET cidade = 'Lindo'  WHERE cidade LIKE '%Belo%'
 
---CIDADES COM MAIS DE 15 CARACTERES;
-SELECT 
-	cidade				'NOME',
-	LEN (cidade)	AS	'TAMANHO DO NOME'
-	FROM cidades
-	Where LEN (cidade) > 15
-	ORDER BY  LEN (cidade) 
+--Trocar estado da cidade que começe com Indaia;
+UPDATE cidades_update SET estado = 'SC'  WHERE cidade LIKE 'Indaia%'
 
---QUANTIDADE DE CIDADES EM SC;
-SELECT 
-	COUNT(cidade) 'QUANTIDADE DE CIDADES EM SC' 
-	FROM cidades WHERE estado = 'SC'
+--Trocar por Josué onde a cidade conter José;
+UPDATE cidades_update SET cidade = 'Josue' WHERE cidade LIKE '%José%'
 
---QUANTIDADE DE CIDADES EM SP;
-SELECT 
-	COUNT(cidade) 'QUANTIDADE DE CIDADES EM SP' 
-	FROM cidades WHERE estado = 'SP'
+--Trocar estadoque contem SP pro PS;
+UPDATE cidades_update SET estado = 'PS' WHERE estado LIKE 'SP'
 
---CIDADES COM 10 CARACTERES;
-SELECT 
-	cidade				'NOME',
-	LEN (cidade)	AS	'TAMANHO DO NOME'
-	FROM cidades
-	Where LEN (cidade) = 10
-	ORDER BY  LEN (cidade)*/
+--Trocar por 'qualquer texto' cidades com mais de 10 caracteres;
+UPDATE cidades_update SET cidade = 'Qualquer texto' WHERE LEN (cidade) > 10 
 
+--Trocar para It quando a cidade começar com IT;
+UPDATE cidades_update SET cidade = 'It' WHERE cidade LIKE '%It%'
+
+--Trocar o estado para TO onde cidade terminar com ã;
+UPDATE cidades_update SET estado = 'TO' WHERE cidade LIKE '%ã'
